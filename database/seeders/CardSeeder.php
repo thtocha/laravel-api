@@ -20,7 +20,7 @@ class CardSeeder extends Seeder
 
         $desk_lists->each(function ($desk_list) {
             Card::factory()
-                ->count(3)
+                ->count(2)
                 ->create(['desk_list_id' => $desk_list->id]);
         });
     }

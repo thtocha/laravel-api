@@ -20,7 +20,7 @@ class TaskSeeder extends Seeder
 
         $cards->each(function ($card) {
             Task::factory()
-                ->count(3)
+                ->count(2)
                 ->create(['card_id' => $card->id]);
         });
     }

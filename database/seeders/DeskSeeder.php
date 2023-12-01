@@ -14,7 +14,7 @@ class DeskSeeder extends Seeder
     public function run(): void
     {
         Desk::factory()
-                ->count(20)
+                ->count(3)
                 ->create();
     }
 }
