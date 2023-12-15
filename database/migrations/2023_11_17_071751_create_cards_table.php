@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->unsignedBigInteger('desk_list_id');
 
-            $table->foreign('desk_list_id')->references('id')->on('desk_lists');
+            $table->foreign('desk_list_id')->references('id')->on('desk_lists')->onDelete('cascade');
         });
     }
 
