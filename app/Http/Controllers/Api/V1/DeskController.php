@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DeskStoreRequest;
 use App\Http\Resources\DeskResource;
 use App\Models\Desk;
-use Symfony\Component\HttpFoundation\Response as ResponseAlias;
+use Illuminate\Http\Response;
 
 class DeskController extends Controller
 {
@@ -15,7 +15,7 @@ class DeskController extends Controller
      */
     public function index()
     {
-        return DeskResource::collection(Desk::all());
+        return DeskResource::collection(Desk::orderBy('created_at', 'desc')->get());
     }
 
     /**
@@ -53,6 +53,6 @@ class DeskController extends Controller
     {
         $desk->delete();
 
-        return response(null, ResponseAlias::HTTP_NO_CONTENT);
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }
