@@ -5,6 +5,7 @@ export default {
             desks: [],
             errored: false,
             loading: true,
+            name: ''
         }
     },
     mounted() {
