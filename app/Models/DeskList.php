@@ -10,4 +10,9 @@ class DeskList extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'desk_id'];
+
+    public function cards()
+    {
+        return $this->hasMany(Card::class);
+    }
 }

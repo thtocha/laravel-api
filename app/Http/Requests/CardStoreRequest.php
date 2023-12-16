@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeskStoreRequest extends FormRequest
+class CardStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,14 +21,9 @@ class DeskStoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        $rules = [
-            'name' => 'required|max:255|unique:desks,name',
+        return [
+            'name' => 'required|max:255',
+            'desk_list_id' => 'required|integer|exists:desk_lists,id',
         ];
-
-        if ($this->isMethod('PUT')) {
-            $rules['name'] .= ',' . $this->desk->id;
-        }
-
-        return $rules;
     }
 }
