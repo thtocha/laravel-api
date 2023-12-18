@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CardStoreRequest;
-use App\Http\Resources\CardResource;
-use App\Models\Card;
+use App\Http\Requests\TaskStoreRequest;
+use App\Http\Resources\TaskResource;
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class CardController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,37 +22,35 @@ class CardController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CardStoreRequest $request)
+    public function store(TaskStoreRequest $request)
     {
-        $created_card = Card::create($request->validated());
+        $new_task = Task::create($request->validated());
 
-        return new CardResource($created_card);
+        return new TaskResource($new_task);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Card $card)
+    public function show(string $id)
     {
-        return new CardResource($card);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(CardStoreRequest $request, Card $card)
+    public function update(Request $request, string $id)
     {
-        $card->update($request->validated());
-
-        return new CardResource($card);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Card $card)
+    public function destroy(Task $task)
     {
-        $card->delete();
+        $task->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
