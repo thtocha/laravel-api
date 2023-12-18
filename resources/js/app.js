@@ -1,16 +1,7 @@
-// import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap.css';
-//
-// import {createApp} from "vue";
-// import Vue from "./components/App.vue"
-//
-// const app = createApp(Vue)
-// app.component('app', require('./components/App.vue').default);
-// app.mount('#app');
-//
-
 import './bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import '@popperjs/core/dist/cjs/popper';
+import 'bootstrap/dist/js/bootstrap.bundle';
 
 
 import { createApp } from 'vue';
